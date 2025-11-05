@@ -4,18 +4,15 @@ import { createContext, useContext, useState } from "react";
 export const DataContext = createContext(null);
 
 export const DataProvider = ({children}) => {
-    const [data, setData] = useState()
-
-    // Mock Data
-    const mockBrands = ["All", "Sony", "Dell", "Samsung", "Apple", "Asus", "Nike"];
+    const [data, setData] = useState([])
 
     // fetching all products from api
 
     const fetchAllProducts = async() => {
         try {
-            const res = await axios.get('https://api.escuelajs.co/api/v1/products')
+            const res = await axios.get('https://fakestoreapiserver.reactbd.org/api/products/')
             console.log(res);
-            const productsData = res.data
+            const productsData = res.data.data
             setData(productsData)
 
         } catch (error) {
@@ -24,8 +21,11 @@ export const DataProvider = ({children}) => {
     }
 
     const getUniqueCategory = (data, property) => {
+        if (!Array.isArray(data)) {
+            return ["All"]; 
+        }
         let newVal = data?.map((curElem) => {
-            return curElem[property]?.name
+            return curElem[property]
         })
         const filteredValues = newVal?.filter(item => item !== undefined && item !== null);
         newVal = ["All", ...new Set(filteredValues)]
@@ -33,7 +33,7 @@ export const DataProvider = ({children}) => {
     }
 
     const categoryOnlyData = getUniqueCategory(data, "category")
-    const brandOnlyData = mockBrands
+    const brandOnlyData = getUniqueCategory(data, "brand");
     return <DataContext.Provider value={{data, setData, fetchAllProducts, categoryOnlyData, brandOnlyData }} >
         {children}
     </DataContext.Provider>

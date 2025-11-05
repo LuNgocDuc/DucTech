@@ -58,7 +58,7 @@ const Carousel = () => {
                                 <button className='bg-gradient-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2'>Mua ngay</button>
                             </div>
                             <div>
-                                <img src={item.images[0]} alt={item.title} className='w-[450px] h-[450px] object-contain rounded-xl shadow-lg hover:scale-105 transition-all duration-300 shadow-2xl shadow-red-400 ' />
+                                <img src={item.image} alt={item.title} className='w-[350px] h-auto object-contain rounded-xl shadow-lg hover:scale-105 transition-all duration-300 shadow-2xl shadow-red-400 ' />
                             </div>
                         </div>
                     </div>

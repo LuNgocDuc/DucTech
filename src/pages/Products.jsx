@@ -17,6 +17,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchAllProducts();
+    window.scrollTo(0, 0)
   }, []);
 
   const handleCategoryChange = (e) => {
@@ -36,7 +37,7 @@ const Products = () => {
   const filteredData = data?.filter(
     (item) =>
       item.title.toLowerCase().includes(search.toLowerCase()) &&
-      (category === "All" || item.category.name.toUpperCase() === category.toUpperCase()) &&
+      (category === "All" || item.category?.toUpperCase() === category?.toUpperCase()) &&
       (brand === "All" || item.brand === brand) &&
       item.price >= priceRange[0] &&
       item.price <= priceRange[1]
