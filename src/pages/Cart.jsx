@@ -1,5 +1,5 @@
 import React from "react";
-import { UseCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LuNotebookText } from "react-icons/lu";
 import { MdDeliveryDining } from "react-icons/md";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import emptyCart from '../assets/empty-cart.png'
 
 const Cart = ({ location, getLocation }) => {
-  const { cartItem, updateQuantity,deleteItem } = UseCart();
+  const { cartItem, updateQuantity,deleteItem } = useCart();
   const { user } = useUser();
   const navigate = useNavigate()
 
@@ -22,7 +22,7 @@ const Cart = ({ location, getLocation }) => {
     return total + price * quantity;
   }, 0);
   return (
-    <div className="mt-10 max-w-6xl mx-auto mb-5">
+    <div className="mt-10 max-w-6xl mx-auto mb-5 px-4 md:px-0">
       {cartItem.length > 0 ? (
         <div>
           <h1 className="font-bold text-2xl">My Cart ({cartItem.length})</h1>
@@ -41,7 +41,7 @@ const Cart = ({ location, getLocation }) => {
                         className="w-20 h-20 rounded-md"
                       />
                       <div>
-                        <h1 className="w-[300px] line-clamp-2">{item.title}</h1>
+                        <h1 className="md:w-[300px] line-clamp-2 ">{item.title}</h1>
                         <p className="text-red-500 font-semibold text-lg">
                           ${item.discountedPrice}
                         </p>
@@ -61,7 +61,7 @@ const Cart = ({ location, getLocation }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-20">
+          <div className="grid grid=cols-1 md:grid-cols-2 md:gap-20">
             <div className="bg-gray-100 rounded-md p-7 mt-4 space-y-2">
               <h1 className="text-gray-800 font-bold text-xl">Delivery Info</h1>
               <div className="flex flex-col space-y-1">
@@ -70,7 +70,7 @@ const Cart = ({ location, getLocation }) => {
                   type="text"
                   placeholder="Enter your name"
                   className="p-2 rounded-md"
-                  value={user.fullName}
+                  value={user?.fullName}
                 />
               </div>
               <div onClick={getLocation} className="flex flex-col space-y-1">
@@ -192,7 +192,7 @@ const Cart = ({ location, getLocation }) => {
         <div className="flex flex-col gap-3 justify-center items-center h-[600px]">
           <h1 className="text-red-500/80 font-bold text-5xl text-muted">Oh No! Your cart is empty</h1>
           <img src= {emptyCart} alt="" className="w-[400px]" />
-          <button onClick={() => navigate('/products')} className="bg-red-500 text-white px-3 py-2 rounded-md cursor-pointer">Continue Shopping</button>
+          <button onClick={() => navigate('/products')} className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md cursor-pointer">Continue Shopping</button>
         </div>
       )}
     </div>

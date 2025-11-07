@@ -2,11 +2,27 @@ import React  from 'react'
 import { getData } from '../context/DataContext'
 import { useNavigate } from 'react-router-dom'
 const Category = () => {
-    const {categoryOnlyData} = getData()
+    // const {categoryOnlyData} = getData()
     const navigate = useNavigate()
+    const {data} = getData()
+
+    const getUniqueCategory = (data, property) => {
+        if (!Array.isArray(data)) {
+            return ["All"]; 
+        }
+        let newVal = data?.map((curElem) => {
+            return curElem[property]
+        })
+        const filteredValues = newVal?.filter(item => item !== undefined && item !== null);
+        newVal = ["All", ...new Set(filteredValues)]
+        return newVal
+    }
+
+    const categoryOnlyData = getUniqueCategory(data, "category")
+
   return (
     <div className='bg-[#101829]'>
-        <div className='max-w-7xl mx-auto flex gap-4 items-center justify-around py-7 px-4'>
+        <div className='max-w-7xl mx-auto flex flex-wrap gap-4 items-center justify-center md:justify-around py-7 px-4'>
         {
             categoryOnlyData?.map((item, index) => {
                 return <div key={index}>

@@ -1,11 +1,11 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { UseCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const {addToCart} = UseCart()
+  const {addToCart} = useCart()
   return (
     <div className="border relative border-gray-100 rounded-2xl cursor-pointer hover:scale-105 hover:shadow-2xl transition-all p-2 h-max">
       <div

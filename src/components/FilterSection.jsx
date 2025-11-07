@@ -4,7 +4,7 @@ import { getData } from "../context/DataContext";
 const FilterSection = ({search, setSearch, brand, setBrand, priceRange, setPriceRange, category, setCategory, handleBrandChange, handleCategoryChange }) => {
   const { categoryOnlyData, brandOnlyData} = getData();
   return (
-    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max">
+    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max hidden md:block">
       <input
         type="text"
         placeholder="Search.."
@@ -48,7 +48,7 @@ const FilterSection = ({search, setSearch, brand, setBrand, priceRange, setPrice
         <label htmlFor="">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
         <input type="range" min="0" max="5000" name="" id="" value={priceRange[1]} onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}/>
       </div>
-      <button className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer" onClick = {() =>{setSearch(''); setCategory('All'); setBrand('All'); setPriceRange([0, 5000])}   }>
+      <button className="bg-red-500 hover:bg-red-600 text-white rounded-md px-3 py-1 mt-5 cursor-pointer" onClick = {() =>{setSearch(''); setCategory('All'); setBrand('All'); setPriceRange([0, 5000])}   }>
         Reset Filters
       </button>
     </div>

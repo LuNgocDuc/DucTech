@@ -5,12 +5,12 @@ import Loading from "../assets/Loading4.webm";
 import Breadcrums from "../components/Breadcrums";
 import Category from "../components/Category";
 import { IoCartOutline } from "react-icons/io5";
-import { UseCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 
 const SingleProduct = () => {
   const params = useParams();
   const [SingleProduct, setSingleProuct] = useState("");
-  const {addToCart} = UseCart()
+  const {addToCart} = useCart()
   console.log(params);
 
   const getSingleProduct = async () => {
@@ -41,7 +41,7 @@ const SingleProduct = () => {
       {SingleProduct ? (
         <div className="px-4 pb-4 md:px-0">
           <Breadcrums title={SingleProduct.title} />
-          <div className="max-w-6xl mx-auto md:p-6 grid grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto md:p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* product image */}
             <div className="w-full">
               <img
@@ -52,7 +52,7 @@ const SingleProduct = () => {
             </div>
             {/* product details */}
             <div className="flex flex-col gap-6">
-              <h1 className="md:text-3xl font-bold text-gray-800">
+              <h1 className="md:text-3xl text-xl font-bold text-gray-800">
                 {SingleProduct.title}
               </h1>
               <div className="text-gray-700">
@@ -67,7 +67,7 @@ const SingleProduct = () => {
                 <span className="line-through text-gray-700">
                   ${SingleProduct.price}
                 </span>{" "}
-                <span className="bg-red-500 text-white px-4 py-1 rounded-full">
+                <span className="bg-red-500 text-white px-2 py-1 rounded-full text-sm">
                   {discountPercent}% discount
                 </span>
               </p>
