@@ -17,7 +17,7 @@ It consumes dynamic product data from the [**Fake Store API**](https://fakestore
 <br>
 
 <div align="center">
-    <h3>🛠️ **Core Technologies Used**</h3>
+    <h3>🛠️ Core Technologies Used</h3>
 </div>
 
 | Category | Technology | Primary Use |
@@ -59,7 +59,7 @@ It consumes dynamic product data from the [**Fake Store API**](https://fakestore
 ---
 
 <div align="left">
-    <h3>⚙️ **Launch Instructions**</h3>
+    <h3>⚙️ Launch Instructions</h3>
     <p>Follow these commands to run the project locally:</p>
 </div>
 
