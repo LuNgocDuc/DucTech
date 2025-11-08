@@ -31,6 +31,8 @@ This project is a complete Front-end e-commerce website focusing on sophisticate
     - Responsive Design: The entire website is built using Tailwind CSS utility classes to ensure full responsiveness across mobile and desktop devices. Layouts, such as the Cart page, switch from a multi-column grid to a single-column layout on mobile.
     - Scroll to Top: A custom button is implemented using react-scroll-to-top to smoothly return the user to the top of the page
 
+🛍️ FAKE API used: https://fakestoreapiserver.reactbd.org/api/products/
+
 ⚙️ Launch Instructions
 
 Run the following command to start the development server:
