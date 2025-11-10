@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import emptyCart from '../assets/empty-cart.png'
 
 const Cart = ({ location, getLocation }) => {
-  const { cartItem, updateQuantity,deleteItem } = useCart();
+  const { cartItem, updateQuantity, deleteItem, updateSize } = useCart();
   const { user } = useUser();
   const navigate = useNavigate()
 
@@ -45,14 +45,29 @@ const Cart = ({ location, getLocation }) => {
                         <p className="text-red-500 font-semibold text-lg">
                           ${item.discountedPrice}
                         </p>
+                        <div className="mt-1 flex items-center gap-2">
+                            <label className="text-sm font-medium text-gray-700">Size:</label>
+                            <select
+                                value={item.size} // Giá trị hiện tại của sản phẩm trong giỏ
+                                onChange={(e) => updateSize(item.uniqueId, e.target.value)} // Gọi hàm cập nhật size
+                                className="text-sm border border-gray-300 rounded-md p-1 focus:ring-red-500 focus:border-red-500"
+                            >
+                                {/* Nếu chưa có item.availableSizes, bạn phải dùng item.size gốc từ API */}
+                                {(item.availableSizes || []).map((s) => ( 
+                                    <option key={s} value={s}>
+                                        {s}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                       </div>
                     </div>
                     <div className="bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl">
-                      <button onClick={() => updateQuantity(cartItem, item._id, "decrease")} className="cursor-pointer">-</button>
+                      <button onClick={() => updateQuantity(item.uniqueId, -1)} className="cursor-pointer">-</button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => updateQuantity(cartItem, item._id, "increase")} className="cursor-pointer">+</button>
+                      <button onClick={() => updateQuantity(item.uniqueId, 1)} className="cursor-pointer">+</button>
                     </div>
-                    <span onClick={() => deleteItem(item._id)} className="hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl">
+                    <span onClick={() => deleteItem(item.uniqueId)} className="hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl">
                       <FaRegTrashAlt className="text-red-500 text-2xl cursor-pointer" />
                     </span>
                   </div>

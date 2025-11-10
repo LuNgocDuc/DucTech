@@ -4,7 +4,7 @@ import { getData } from "../context/DataContext";
 const FilterSection = ({search, setSearch, brand, setBrand, priceRange, setPriceRange, category, setCategory, handleBrandChange, handleCategoryChange }) => {
   const { categoryOnlyData, brandOnlyData} = getData();
   return (
-    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max hidden md:block">
+    <div className="bg-gray-200 mt-10 p-4 rounded-md h-max hidden md:block">
       <input
         type="text"
         placeholder="Search.."

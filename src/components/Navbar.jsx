@@ -13,6 +13,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
+import logo from '../assets/logo.png'
 
 const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
   const { cartItem } = useCart();
@@ -27,10 +28,11 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
         {/* logo section */}
         <div className="flex gap-7 items-center">
           <Link to={"/"}>
-            <h1 className="font-bold text-3xl">
-              {" "}
-              <span className="text-red-500 font-serif">D</span>ucTech
-            </h1>
+            <img 
+              src={logo} // <-- Dùng biến logo đã import
+              alt="Logo LuTech"
+              className="h-8 rounded-md" // <-- Điều chỉnh chiều cao/rộng theo ý muốn
+            />
           </Link>
           <div className="md:flex gap-1 cursor-pointer text-gray-700 items-center hidden">
             <MapPin className="text-red-500" />
