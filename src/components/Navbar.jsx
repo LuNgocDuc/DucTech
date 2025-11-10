@@ -78,7 +78,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
                 } cursor-pointer`
               }
             >
-              <li>Trang chủ</li>
+              <li>Home</li>
             </NavLink>
             <NavLink
               to={"/products"}
@@ -90,7 +90,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
                 } cursor-pointer`
               }
             >
-              <li>Sản phẩm</li>
+              <li>Products</li>
             </NavLink>
             <NavLink
               to={"/about"}
@@ -102,7 +102,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
                 } cursor-pointer`
               }
             >
-              <li>Giới thiệu</li>
+              <li>About</li>
             </NavLink>
             <NavLink
               to={"/contact"}
@@ -114,7 +114,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
                 } cursor-pointer`
               }
             >
-              <li>Liên hệ</li>
+              <li>Contact</li>
             </NavLink>
           </ul>
           <Link to={"/cart"} className="relative">
