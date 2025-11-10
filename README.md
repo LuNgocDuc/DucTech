@@ -1,6 +1,7 @@
 <div align="center">
     <h1>🛒 E-COMMERCE: Modern Frontend E-commerce Platform</h1>
     <h2>ReactJS • Tailwind CSS • Clerk Auth • Advanced State Management</h2>
+    <h2>URL : https://ductechshop.netlify.app/</h2>
 </div>
 
 ---
